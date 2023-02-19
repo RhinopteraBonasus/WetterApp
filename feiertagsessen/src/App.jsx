@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
+import './App.css';
 
 const API_KEY = '7cc5a9a8bb7e16cf68f2e9f35a2c7b88';
 
@@ -75,11 +76,11 @@ const App = () => {
   }
 
   return (
-    <div>
-      <h1>Weather App</h1>
+    <div className="container">
+      <h1 className="title">Weather App</h1>
 
-      <div>
-        <h2>Current Weather</h2>
+      <div className="card">
+        <h2 className="card-title">Current Weather</h2>
         {currentTemp ? (
           <div>
             <p>Temperature: {currentTemp}°C</p>
@@ -91,8 +92,8 @@ const App = () => {
         )}
       </div>
 
-      <div>
-        <h2>Search by Location</h2>
+      <div className="card">
+        <h2 className="card-title">Search by Location</h2>
         <form onSubmit={handleSearch}>
           <input type="text" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} />
           <button type="submit">Search</button>
@@ -113,9 +114,10 @@ const App = () => {
         )}
       </div>
 
-      <div id="mapid" style={{ width: '100%', height: '400px' }}></div>
+      <div id="mapid" className="map"></div>
     </div>
   );
 }
 
 export default App;
+
